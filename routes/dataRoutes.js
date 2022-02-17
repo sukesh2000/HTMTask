@@ -4,10 +4,31 @@ const app = express();
 
 app.get("/getData", async (request, response) => {
     const userData = await dataModel.find({});
+    userData.sort((a, b)=>{
+        if (a.course < b.course){
+            return -1;
+        }
+        if ( a.course > b.course ){
+            return 1;
+        }
+        return 0;
+    })
     
+    tmp = {};
+    userData.forEach((data)=>{
+        let course =  data.course;
+        delete this.course;
+        if(!(course in tmp)){
+            tmp[course] = [];
+            tmp[course].push(data);
+        }
+        else{
+            tmp[course].push(data);
+        }
+    })
 
     try {
-        response.render('index', { title: 'User List', userData: userData});
+        response.render('index', { title: 'User List', userData: tmp});
     } catch (error) {
         response.status(500).send(error);
     }

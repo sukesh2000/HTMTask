@@ -1,1 +1,1 @@
-DB_CONNECT=mongodbURL
+DB_CONNECT=mongodbURL(E.g. mongodb+srv://<username>:<password>@<mongodburl>/<databasename>?retryWrites=true&w=majority)

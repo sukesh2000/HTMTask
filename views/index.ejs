@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Hack The Mountains Task</title>
+    <title>Hack The Mountains Task</title>
 </head>
 <body>
-    <div class="table-data">
-        <h2>Course 1</h2>
-        <table border="1">
-            <tr>
-                <th>S. No.</th>
-                <th>User</th>
-                <th>Progress %</th>
-            </tr>
-            
-            <%
-            if(userData.length!=0){
-            var i=1;
-            userData.forEach(function(data){
-            %>
-            <tr>
-                <td><%=i; %></td>
-                <td><%=data.user %></td>
-                <td><%=data.progress %></td>
-            </tr>
-            <%  i++; }) %>
-            <% } else{ %>
+    <%
+    for (const course in userData){
+    %>
+        <div class="<%=course%>-data">
+            <h2><%=course%></h2>
+            <table border="1">
                 <tr>
-                    <td colspan="7">No Data Found</td>
+                    <th>S. No.</th>
+                    <th>User</th>
+                    <th>Progress %</th>
                 </tr>
-            <% } %>
-        </table>
-    </div>
+                
+                <%
+                var i=1;
+                userData[course].forEach((data) => {
+                %>
+                <tr>
+                    <td><%=i; %></td>
+                    <td><%=data.user %></td>
+                    <td><%=data.progress %></td>
+                </tr>
+                <%  i++; }) %>
+            </table>
+        </div>
+    <% }  %>
 </body>
 </html>
