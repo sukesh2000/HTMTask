@@ -3,3 +3,11 @@
     margin-right: auto;
     text-align: center;
 }
+
+body {
+    background-color: skyblue;
+}
+
+tr {
+    border-bottom: 1px solid #ddd;
+}
