@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <title>Hack The Mountains Task</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <%
     for (const course in userData){
     %>
         <div class="<%=course%>-data">
-            <h2><%=course%></h2>
-            <table border="1">
+            <h2 class="center"><%=course%></h2>
+            <table border="1" class="center">
                 <tr>
                     <th>S. No.</th>
                     <th>User</th>
