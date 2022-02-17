@@ -2,7 +2,7 @@ const express = require("express");
 const dataModel = require("../models/Data");
 const app = express();
 
-app.get("/getData", async (request, response) => {
+app.get("/", async (request, response) => {
     const userData = await dataModel.find({});
     userData.sort((a, b)=>{
         if (a.course < b.course){
